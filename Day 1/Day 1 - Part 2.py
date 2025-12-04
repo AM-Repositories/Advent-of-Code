@@ -4503,8 +4503,8 @@ R7
 # RULEBOOK
 # L = Subtract number
 # R = Add Number
-# above 99 loops back to 0
-# below 0 loops back to 99
+# if number is above 99 loops back to 0
+# if number is below 0 loops back to 99
 # Ticks every time 0 is passed or landed on
 
 # GLOBAL VALUES
