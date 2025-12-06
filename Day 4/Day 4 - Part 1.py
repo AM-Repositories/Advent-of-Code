@@ -3,17 +3,6 @@
     # Figure out how many rolls of paper can be accessed/moved by a forklift
     # A paper roll (@) can only be accessed if there are FEWER than 4 (1-3) rolls of paper around it (in a 3x3)
 
-# cafeteria = """..@@.@@@@.
-# @@@.@.@.@@
-# @@@@@.@.@@
-# @.@@@@..@.
-# @@.@@@@.@@
-# .@@@@@@@.@
-# .@.@.@.@@@
-# @.@@@.@@@@
-# .@@@@@@@@.
-# @.@.@@@.@."""
-
 print("Please hold while calculations are performed...")
 file = open("Day 4 - Input.txt")
 
@@ -56,9 +45,7 @@ accessible_rolls = 0
 #MAIN CODE
 
 #STEP 1
-# shelves = cafeteria.splitlines()
 shelves = file.readlines()
-#shelves = shelves.strip()
 #Set the row length
 for row in range(0, len(shelves)):
     #Set the column, according to which row we're on
@@ -66,7 +53,7 @@ for row in range(0, len(shelves)):
         paper = shelves[row][col]
         #STEP 2
         if is_paper(paper):
-            #STEP 3
+            #STEP 3 & 4
             surrounding_rolls = 0
             for r, c in adjacent_cells(row, col):
                 if r < 0 or c < 0:
@@ -77,11 +64,8 @@ for row in range(0, len(shelves)):
                 except IndexError:
                     continue
 
+            # STEP 5 & 6
             if surrounding_rolls < 4:
-                print(f"Shelves: {shelves[row][col]}")
-                print(f"Paper: {r, c}")
-                print(f"Surrounding: {surrounding_rolls}")
-                print(f"Accessible: {accessible_rolls}")
                 accessible_rolls += 1
 
 

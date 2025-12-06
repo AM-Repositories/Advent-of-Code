@@ -4,20 +4,8 @@
     # A paper roll (@) can only be accessed if there are FEWER than 4 (1-3) rolls of paper around it (in a 3x3)
     # Once a paper roll has been accessed, it is REMOVED. This could open up more rolls for removal.
 
-# cafeteria = """..@@.@@@@.
-# @@@.@.@.@@
-# @@@@@.@.@@
-# @.@@@@..@.
-# @@.@@@@.@@
-# .@@@@@@@.@
-# .@.@.@.@@@
-# @.@@@.@@@@
-# .@@@@@@@@.
-# @.@.@@@.@."""
-
 print("Please hold while calculations are performed...")
 file = open("Day 4 - Input.txt")
-
 
 #Process
 # 1) Create shelves from our sample, and iterate individual cells by its column and row position.
@@ -58,10 +46,11 @@ def adjacent_cells(row, col):
 
 #From our samples, selects a roll, forms a 3x3, checks if its valid, and removes the valid paper
 def find_next_roll(shelves):
+
     global accessible_rolls
     global no_rolls_left
+
     # STEP 1
-    # shelves = shelves.strip()
     # Set the row length
     for row in range(0, len(shelves)):
         # Set the column, according to which row we're on
@@ -69,7 +58,7 @@ def find_next_roll(shelves):
             paper = shelves[row][col]
             # STEP 2
             if is_paper(paper):
-                # STEP 3
+                # STEP 3 & 4
                 surrounding_rolls = 0
                 for r, c in adjacent_cells(row, col):
                     if r < 0 or c < 0:
@@ -80,15 +69,13 @@ def find_next_roll(shelves):
                     except IndexError:
                         continue
 
+                # STEP 5 & 6
                 if surrounding_rolls < 4:
                     return row, col
-                    # print(f"Shelves: {shelves[row][col]}")
-                    # print(f"Paper: {r, c}")
-                    # print(f"Surrounding: {surrounding_rolls}")
-                    # print(f"Accessible: {accessible_rolls}")
+
     return None
 
-#MAIN CODE
+#MAIN CODE - STEP 7
 shelves = file.readlines()
 while True:
     coord = find_next_roll(shelves)
