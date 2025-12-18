@@ -67,8 +67,6 @@ def solve_machine(machine):
         indicators = new_indicators
     return press_count
 
-
-
 # MAIN CODE
 print("\nPlease wait while calculations are performed...")
 

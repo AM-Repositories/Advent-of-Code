@@ -7,7 +7,7 @@
     # 1) Take sample and break up the math problems into columns. A new math problem goes into a new row.
     # 2) The operation symbol will go on the last line. Equation should read (a) (symbol) (b) (symbol) (c) (symbol) (d) = answer
     # 3) Solve the problems and add their answers into a total sum.
-    # 4) The total sum will be the answer to Day 6
+    # 4) The total sum will be the answer to Day 06
 
 # GLOBAL VARIABLES
 answer = 0
